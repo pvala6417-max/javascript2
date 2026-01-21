@@ -80,3 +80,15 @@ temp_d = {};
 //type creation
 // "5" +1
 // "5" -1
+
+//truthy and falsy values
+//falsy values --> false, 0, "", null, undefined, NaN
+//truthy values --> everything else
+//ex. !!0 -- check value is true or false
+//ex. if(null){}, js covert it into false
+//ex. if("hello"){} , js covert it into true
+//all --> true
+
+//ex 1
+//true + false
+// ans 1
