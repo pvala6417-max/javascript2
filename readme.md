@@ -337,3 +337,251 @@ if(count-- === 5){
     console.log("Not Matched"); 
 }
 
+//controlflow
+
+
+// =============================
+// JavaScript Control Flow Examples
+// =============================
+
+// 1. If Statements
+if (12 < 13) {
+    console.log(true);
+}
+
+if (15 < 13) {
+    console.log(true); // condition false, won't run
+}
+
+if (!12) {
+    console.log("number");
+}
+
+// 2. If-Else Statements
+if (12 > 13) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+if (15 > 13) {
+    console.log(true);
+} else {
+    console.log(false);
+}
+
+if (!12) {
+    console.log("number");
+} else {
+    console.log("not a number");
+}
+
+// 3. If...Else If...Else Example
+let loggedin = true;
+let isAdmin = false;
+
+if (loggedin && isAdmin) {
+    console.log("show admin panel");
+} else if (loggedin) {
+    console.log("show user");
+} else {
+    console.log("please log in");
+}
+
+// 4. Switch Case Examples
+let coupon = 'first50';
+switch (coupon) {
+    case 'first50':
+        console.log("you got 50%");
+        break;
+    case 'BOGO':
+        console.log("buy one get one free");
+        break;
+    case 'blackFriday':
+        console.log("70% off on all items");
+        break;
+    default:
+        console.log("invalid coupon");
+}
+
+let mode = "dark";
+switch (mode) {
+    case "light":
+        console.log("Light mode activated");
+        break;
+    case "dark":
+        console.log("Dark mode activated");
+        break;
+    default:
+        console.log("Invalid mode");
+}
+
+// 5. Early Return Pattern
+function score(value) {
+    if (value > 90) return "value is more than 90";
+    if (value > 80) return "value is more than 80";
+    if (value > 70) return "value is more than 70";
+    if (value > 60) return "value is more than 60";
+    return "value is less than 60";
+}
+
+console.log(score(85)); // example call
+
+function score2(value) {
+    if (value < 60) return "value is less than 60";
+    if (value < 70) return "value is more than 60";
+    if (value < 80) return "value is more than 70";
+    if (value < 90) return "value is more than 80";
+    return "value is more than 90";
+}
+
+console.log(score2(75));
+
+// 6. Switch Case Fall-Through Example
+let x = 2;
+switch (x) {
+    case 2:
+        console.log("Two");
+    case 3:
+        console.log("Three");
+}
+
+// 7. Grading Function
+function getGrade(score) {
+    if (score < 0 || score > 100) return "Invalid Marks";
+    if (score >= 90) return "A+";
+    if (score >= 80) return "A";
+    if (score >= 70) return "B";
+    if (score >= 60) return "C";
+    if (score >= 33) return "D";
+    return "Fail";
+}
+
+console.log(getGrade(85));
+
+// 8. Rock-Paper-Scissors (If-Else)
+function rps(user, computer) {
+    if (user === "rock" && computer === "scissors") return "user wins";
+    if (user === "scissors" && computer === "paper") return "user wins";
+    if (user === "paper" && computer === "rock") return "user wins";
+
+    if (user === "scissors" && computer === "rock") return "computer wins";
+    if (user === "rock" && computer === "paper") return "computer wins";
+    if (user === "paper" && computer === "scissors") return "computer wins";
+
+    return "it's a tie";
+}
+
+console.log(rps("rock", "scissors"));
+console.log(rps("paper", "rock"));
+console.log(rps("rock", "paper"));
+console.log(rps("scissors", "scissors"));
+
+// 9. Compact RPS Version
+function rpsCompact(user, computer) {
+    if (user === computer) return "It's a tie";
+    const winCombo = { rock: "scissors", scissors: "paper", paper: "rock" };
+    return winCombo[user] === computer ? "User wins" : "Computer wins";
+}
+
+console.log(rpsCompact("rock", "scissors"));
+console.log(rpsCompact("paper", "rock"));
+console.log(rpsCompact("rock", "paper"));
+console.log(rpsCompact("scissors", "scissors"));
+
+// 10. While Loop Examples
+let k = 50;
+while (k <= 50) {
+    console.log("k :", k);
+    k++;
+}
+
+let c = 30;
+while (c > 20) {
+    console.log(c);
+    c--;
+}
+
+let d = 1;
+while (d <= 5) {
+    console.log("hello");
+    d++;
+}
+
+//loops
+# JavaScript Loops
+
+Loops are used to **repeat a block of code multiple times**.  
+They are useful when you **know how many times** or **under what condition** the code should run.
+
+---
+
+## 1. For Loop
+
+```js
+// Print 1 to 10
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+// Print 10 to 1
+for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}
+
+// Print 5 to 1
+let count = 5;
+while (count >= 1) {
+    console.log(count);
+    count--;
+}
+
+// Print 50
+let k = 50;
+while (k <= 50) {
+    console.log("k :", k);
+    k++;
+}
+
+// Print 30 down to 21
+let c = 30;
+while (c > 20) {
+    console.log(c);
+    c--;
+}
+
+// Print "hello" 5 times
+let d = 1;
+while (d <= 5){
+    console.log("hello");
+    d++;
+}
+
+// Decrement from 50 to 40
+let f = 50;
+while (f >= 40){
+    console.log(f);
+    f--;
+}
+
+// Alternative decrement using prefix
+let q = 50;
+while (q >= 40){
+    console.log(q);
+    --q;
+}
+
+// Count 10 to 20
+let g = 10;
+do {
+    console.log("g :", g);
+    g++;
+} while (g <= 20);
+
+// Count 30 down to 20
+let h = 30;
+do {
+    console.log("h :", h);
+    h--;
+} while(h >= 20);
+
