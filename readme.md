@@ -585,3 +585,118 @@ do {
     h--;
 } while(h >= 20);
 
+
+
+# JavaScript Functions – Complete Guide (All Code in One File)
+
+## What is a Function?
+A function is a block of code that performs a specific task.
+
+---
+
+## Function Types
+### Function Declaration
+```javascript
+function abc(){}
+```
+
+### Function Expression
+```javascript
+let fun = function(){}
+```
+
+### Arrow Function
+```javascript
+let fun1 = () => {}
+```
+
+---
+
+## Parameters & Arguments
+```javascript
+function cart(product, price){
+    console.log(`adding ${product} at ${price}`);
+}
+cart("laptop", 45000);
+cart("phone" , 25000);
+cart("s23 ultra" , 105000);
+```
+
+---
+
+## Default Parameters
+```javascript
+function abcd(b =10, price = 0){
+    console.log(price, b);
+}
+abcd(15);
+```
+
+---
+
+## Rest Parameters
+```javascript
+function def1(...number){
+    console.log(number);
+}
+def1(1,2,3,4,5,6,7,8,9,10);
+```
+
+---
+
+## Early Return Pattern
+```javascript
+function score1(value){
+    if (value > 90) return "value is more than 90";
+    if (value > 80) return "value is more than 80";
+    if (value > 70) return "value is more than 70";
+    if (value > 60) return "value is more than 60";
+    return "value is less than 60";
+}
+```
+
+---
+
+## First Class Functions
+```javascript
+let cart4 = function(product, discount=0 , price1){
+    console.log(`adding ${product} at ${price1 - discount}`);
+};
+
+function temp_b(fcn){
+    fcn();
+}
+
+temp_b(function (){
+    console.log("first class function");
+});
+```
+
+---
+
+## Higher Order Functions (HOF)
+```javascript
+function greet(name) {
+    return `Hello ${name}`;
+}
+
+function processUser(callback) {
+    console.log(callback("Parth"));
+}
+
+processUser(greet);
+```
+
+### Another Example
+```javascript
+function abcd(val){
+    val();
+}
+
+abcd(function(){
+    console.log("hello");
+});
+```
+
+---
+
