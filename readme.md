@@ -699,4 +699,100 @@ abcd(function(){
 ```
 
 ---
+// -------------------------------
+// 1. Pure vs Impure Function
+// -------------------------------
+
+// Pure function --> same input gives same output, no side effects
+let a = 10;
+function abcd_pure() {
+    console.log("hello");
+}
+
+// Impure function --> same input can give different output, modifies external state
+function abcd_impure() {
+    a++;
+    console.log(a);
+}
+
+
+// -------------------------------
+// 2. Closure Function
+// -------------------------------
+// A function that can access variables of its parent function
+function outer() {
+    let count = 0;
+    function inner() {
+        count++;
+        console.log(count);
+    }
+    return inner;
+}
+
+let fnc = outer();
+fnc(); // 1
+fnc(); // 2
+
+
+// -------------------------------
+// 3. Lexical Scope
+// -------------------------------
+// Nested function can access variables declared in outer scope
+function outerScopeExample() {
+    let outer_var = "outer variable";
+    function inner() {
+        let inner_var = "inner variable";
+        console.log(outer_var);
+        function most_inner() {
+            console.log(inner_var);
+            console.log(outer_var);
+            let most_inner_var = "most inner variable";
+            function super_inner() {
+                console.log(most_inner_var);
+                console.log(inner_var);
+                console.log(outer_var);
+            }
+            super_inner();
+        }
+        most_inner();
+    }
+    inner();
+}
+
+outerScopeExample();
+
+
+// -------------------------------
+// 4. IIFE (Immediately Invoked Function Expression)
+// -------------------------------
+
+(function() {
+    // This function executes immediately
+})();
+
+(function() {
+    console.log("IIFE function executed");
+})();
+
+
+// -------------------------------
+// 5. Hoisting in Functions
+// -------------------------------
+
+// Function declarations are hoisted
+hoistedFunction();
+function hoistedFunction() {
+    console.log("This function is hoisted");
+}
+
+// Function expressions and arrow functions are NOT hoisted
+// hoistedFunctionExpr(); // Error: Cannot access before initialization
+let hoistedFunctionExpr = function() {
+    console.log("This is function expression");
+};
+
+// hoistedArrowFunction(); // Error: Cannot access before initialization
+let hoistedArrowFunction = () => {
+    console.log("This is arrow function");
+};
 
