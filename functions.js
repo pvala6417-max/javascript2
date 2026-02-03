@@ -313,15 +313,93 @@ ab();
 // Calling a(); will print "Hello".
 
 // example 13
-function abcd(val) {
+function abcd1(val) {
     val();
 }
 
-abcd(function () {
+abcd1(function () {
     console.log("Hello");
 });
 // Ans: Yes, you can pass a function into another function and execute it.  
 // This works because functions are first-class citizens in JavaScript, meaning they can be passed as arguments.  
 // In this example, abcd receives a function and calls it inside using val(), which prints "Hello".
 
-// example 14                                                                               
+// example 16
+
+// Ans: Impure Function
+// Why:
+
+// Because it modifies an external variable (total += num). Pure functions must not change outside state.
+
+// example 17
+function num(total, num){
+    return total + num;
+}
+// Why:
+// Takes inputs and returns output without modifying outside variables → pure function.
+
+// example 18
+// Closure = A function that remembers variables from its outer scope even after the outer function has finished.
+// Why:
+// JavaScript keeps the outer scope alive for the inner function.
+
+// example 19
+function outer(){
+    let count = 0;
+    return function(){
+        count++;
+        console.log(count);
+    };
+}
+const counter = outer();
+counter();
+counter();
+// Ans: The output will be 1 and then 2.
+
+//example 20
+(function init(){
+    console.log("Initialized");
+})();
+
+//Why:
+// IIFE runs immediately without calling the function separately.
+
+// example 21
+// Ans:
+// Use of IIFE → Data privacy & avoid global pollution.
+// Real-world example → Module pattern that hides private variables.
+// Given Example Explanation:
+// score is private inside the IIFE and can only be accessed using getScore and setScore.
+// Why:
+// Variables inside IIFE are not accessible from outside → provides security.
+
+// example 22
+temp_var();
+var temp_var = function(){
+    console.log("Hello");
+}
+// Ans: It will throw a TypeError: temp_var is not a function.
+
+//example 23
+temp_var();
+function temp_var(){
+    console.log("Hello");
+}
+// Ans: It will print "Hello" because function declarations are hoisted completely.
+
+// example 24
+//Function Declaration
+function hello() {
+    console.log("Hello");
+}
+
+//Function Expression
+var hello = function() {
+    console.log("Hello");
+}
+
+//example 25
+greet();
+function greet(){
+  console.log("Hello!");
+}
