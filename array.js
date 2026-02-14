@@ -521,3 +521,4 @@ let mix_arr = [...temp_arr, ...temp_arr2];
 
 console.log(mix_arr);
 
+
